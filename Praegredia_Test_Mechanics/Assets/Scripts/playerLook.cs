@@ -5,7 +5,8 @@ using UnityEngine;
 public class playerLook : MonoBehaviour {
 
     public Transform playerBody;
-    public GameObject playerCamera;
+    public GameObject firstPersonCamera;
+    public GameObject thirdPersonCamera;
     public float mouseSpeed;
     public float rotateSpeed;
     
@@ -43,10 +44,18 @@ public class playerLook : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
         }
 
-        //if (Input.GetKeyDown("tab"))
-        //{
-        //    playerCamera.transform.position = new Vector3(0,0,0);
-        //    playerCamera.transform.rotation = new Vector3(0, 0, 0);
-        //}
+        if (Input.GetKeyDown("tab"))
+        {
+            if (firstPersonCamera.activeSelf == true)
+            {
+                firstPersonCamera.SetActive(false);
+                thirdPersonCamera.SetActive(true);
+            }
+            else
+            {
+                thirdPersonCamera.SetActive(false);
+                firstPersonCamera.SetActive(true);
+            }
+        }
     }
 }
