@@ -8,9 +8,12 @@ public class Player : MonoBehaviour {
     public float jumpHeight;
     public float sprintSpeed;
     public Transform playerBody;
-    public GameObject playerCamera;
+    public GameObject firstPersonCamera;
+    public GameObject thirdPersonCamera;
+    public GameObject playerMenu;
     public float mouseSpeed;
     public float rotateSpeed;
+    private bool canMove;
 
     // Use this for initialization
     void Start () {
@@ -20,28 +23,39 @@ public class Player : MonoBehaviour {
 
         //Removes cursor
         Cursor.lockState = CursorLockMode.Locked;
+
+        //Allows player to move
+        canMove = true;
+
+        //Turns playerMenu off
+        
+        playerMenu.SetActive(false);
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-        //turns cursor back on with escape
-        if (Input.GetKeyDown("escape"))
+	void Update ()
+    {
+        if (canMove)
         {
-            Cursor.lockState = CursorLockMode.None;
+            Move();
+            Jump();
+            Rotate();
+            SwitchPerspective();
         }
-
-        Move();
-        Jump();
-        Rotate();
-
+        //Move();
+        //Jump();
+        //Rotate();
+        //SwitchPerspective();
+        ToggleMenu();
     }
 
     //player movement
     void Move()
     {
+        //moves left and right
         transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * playerSpeed);
+        //moves forward and back
         transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
 
         //sprint
@@ -60,6 +74,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    //rotates the camera based on mouse input
     void Rotate()
     {
         if (Input.GetAxis("Mouse X") < 0)
@@ -69,6 +84,44 @@ public class Player : MonoBehaviour {
         if (Input.GetAxis("Mouse X") > 0)
         {
             transform.Rotate(Vector3.up * mouseSpeed);
+        }
+    }
+
+    //switches between first and third person
+    void SwitchPerspective()
+    {
+        if (Input.GetKeyDown("tab"))
+        {
+            if (firstPersonCamera.activeSelf == true)
+            {
+                firstPersonCamera.SetActive(false);
+                thirdPersonCamera.SetActive(true);
+            }
+            else
+            {
+                thirdPersonCamera.SetActive(false);
+                firstPersonCamera.SetActive(true);
+            }
+        }
+    }
+
+    //turns cursor and menu on/off
+    void ToggleMenu()
+    {
+        //turns cursor & playerMenu on with escape
+        if (Input.GetKeyDown("escape") && canMove == true)
+        {
+            canMove = false;
+            Cursor.lockState = CursorLockMode.None;
+            playerMenu.SetActive(!canMove);
+        }
+
+        //turns cursor & playerMenu off with escape
+        if(Input.GetKeyDown("escape") && canMove == false)
+        {
+            canMove = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            playerMenu.SetActive(!canMove);
         }
     }
 }
