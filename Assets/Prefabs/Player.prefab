@@ -338,12 +338,12 @@ MonoBehaviour:
   playerSpeed: 0.2
   jumpHeight: 6
   sprintSpeed: 1.5
-  playerBody: {fileID: 4765286967552184}
+  mouseSpeed: 2
+  rotateSpeed: 50
+  playerBody: {fileID: 1142871189633228}
   firstPersonCamera: {fileID: 1604753741645910}
   thirdPersonCamera: {fileID: 1439682004680156}
   playerMenu: {fileID: 0}
-  mouseSpeed: 2
-  rotateSpeed: 50
 --- !u!114 &114417223347732044
 MonoBehaviour:
   m_ObjectHideFlags: 1
