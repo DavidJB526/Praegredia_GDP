@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
     //Player's inventory UI
     [SerializeField]
     private GameObject playerMenu;
+    [SerializeField]
+    private Button inventoryButton;
 
     //Boolean to determine whether the player can move or not
     private bool canMove;
@@ -125,6 +127,7 @@ public class Player : MonoBehaviour {
             canMove = false;
             Cursor.lockState = CursorLockMode.None;
             playerMenu.SetActive(true);
+            inventoryButton.interactable = false;
         }
         else if (Input.GetKeyDown("escape") && canMove == false)
         {
