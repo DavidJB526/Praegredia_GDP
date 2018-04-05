@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 136473196390635366}
   - component: {fileID: 23601453391155674}
   - component: {fileID: 54157910666114866}
-  - component: {fileID: 114916879903124458}
-  - component: {fileID: 114417223347732044}
   - component: {fileID: 114043013720644536}
+  - component: {fileID: 135600138630100386}
+  - component: {fileID: 114113346501034716}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142871189633228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.66, y: 1.592, z: 5.873}
+  m_LocalPosition: {x: 2.66, y: 1.04, z: 5.873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4213124058855060}
@@ -344,36 +344,21 @@ MonoBehaviour:
   firstPersonCamera: {fileID: 1604753741645910}
   thirdPersonCamera: {fileID: 1439682004680156}
   playerMenu: {fileID: 0}
---- !u!114 &114417223347732044
+  inventoryButton: {fileID: 0}
+--- !u!114 &114113346501034716
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142871189633228}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab22ee44f494274bafdc6e11aeff3ae, type: 3}
+  m_Script: {fileID: 11500000, guid: af955a50a15c0544e9f249c106a08c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 4765286967552184}
-  firstPersonCamera: {fileID: 1604753741645910}
-  thirdPersonCamera: {fileID: 1439682004680156}
-  mouseSpeed: 2
-  rotateSpeed: 50
---- !u!114 &114916879903124458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1142871189633228}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f1508e3ddc7734dac0009dbe3e662f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 0.2
-  jumpHeight: 6
-  sprintSpeed: 1.5
+  interactMessage: {fileID: 0}
+  abiltiesGainedMessage: {fileID: 0}
+  interactSliderCounter: {fileID: 0}
 --- !u!124 &124221457770532296
 Behaviour:
   m_ObjectHideFlags: 1
@@ -388,6 +373,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604753741645910}
   m_Enabled: 1
+--- !u!135 &135600138630100386
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1142871189633228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.16
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136473196390635366
 CapsuleCollider:
   m_ObjectHideFlags: 1

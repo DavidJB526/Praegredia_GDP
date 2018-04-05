@@ -98,11 +98,11 @@ public class abilityGaining : MonoBehaviour
         //Once the loop is finished, remove the interact message
         interactMessage.text = string.Empty;
         interactSliderCounter.value = 0;
-        
-        //Wait five seconds
-        yield return new WaitForSeconds(3);
-        //Bool whether or not the creatures ability has been gained
+        Debug.Log("Gained an ability");
         creature.GetComponent<Creature>().abilityReceived = true;
+        yield return new WaitForSeconds(1);
+        //Bool whether or not the creatures ability has been gained
+        
         //Then remove that message
         abiltiesGainedMessage.text = string.Empty;
         
