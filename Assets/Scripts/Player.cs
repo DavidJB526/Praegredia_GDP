@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
     void Start () {
 
         //Player spawns in
-        playerBody.transform.position = new Vector3(0, 2, 0);
+        //playerBody.transform.position = new Vector3(0, 2, 0);
 
         //Removes cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -126,6 +126,7 @@ public class Player : MonoBehaviour {
         {
             canMove = false;
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             playerMenu.SetActive(true);
             inventoryButton.interactable = false;
         }
