@@ -23,6 +23,9 @@ public class Player : MonoBehaviour {
     //Boolean to determine whether the player can move or not
     private bool canMove;
 
+    //Boolen to determine whether the player is on the ground
+    private bool isGrounded;
+
     // Use this for initialization
     void Start () {
 
@@ -56,10 +59,7 @@ public class Player : MonoBehaviour {
         {
             playerBody.GetComponent<Rigidbody>().isKinematic = true;
         }
-        //Move();
-        //Jump();
-        //Rotate();
-        //SwitchPerspective();
+
         ToggleMenu();
     }
 
@@ -81,9 +81,10 @@ public class Player : MonoBehaviour {
     //jump
     void Jump()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && isGrounded)
         {
             playerBody.transform.GetComponent<Rigidbody>().velocity = Vector3.up * jumpHeight;
+            isGrounded = false;
         }
     }
 
@@ -140,5 +141,11 @@ public class Player : MonoBehaviour {
         }
         
 
+    }
+
+    //Checks for collision, built in Unity tool
+    private void OnCollisionStay(Collision collision)
+    {
+        isGrounded = true;
     }
 }
