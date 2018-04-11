@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praegredia_GDP", "Praegredia_GDP.csproj", "{81AA92BA-A5A1-AA72-BACD-5FA8B34050A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praegredia_GDP.Plugins", "Praegredia_GDP.Plugins.csproj", "{3A86D520-8807-2F45-80FA-80F410443AE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{81AA92BA-A5A1-AA72-BACD-5FA8B34050A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81AA92BA-A5A1-AA72-BACD-5FA8B34050A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81AA92BA-A5A1-AA72-BACD-5FA8B34050A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A86D520-8807-2F45-80FA-80F410443AE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A86D520-8807-2F45-80FA-80F410443AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A86D520-8807-2F45-80FA-80F410443AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A86D520-8807-2F45-80FA-80F410443AE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

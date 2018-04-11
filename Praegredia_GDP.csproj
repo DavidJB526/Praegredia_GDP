@@ -282,6 +282,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Praegredia_GDP.Plugins.csproj">
+      <Project>{3A86D520-8807-2F45-80FA-80F410443AE0}</Project>
+      <Name>Praegredia_GDP.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Scripts\abilityGaining.cs" />
     <Compile Include="Assets\Scripts\Creature.cs" />
     <Compile Include="Assets\Scripts\InventoryUIFunctionality.cs" />
@@ -289,6 +295,13 @@
     <Compile Include="Assets\Scripts\playerLook.cs" />
     <Compile Include="Assets\Scripts\playerMove.cs" />
     <Compile Include="Assets\Scripts\playerShoot.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
