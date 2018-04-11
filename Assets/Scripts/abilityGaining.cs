@@ -7,44 +7,40 @@ public class abilityGaining : MonoBehaviour
 {
     //UI messages
     [SerializeField]
-    private Text interactMessage, abiltiesGainedMessage;
+    private Text interactMessage;
+    [SerializeField]
+    private GameObject abilitiesImage;
 
     //The slider around the interact button
     [SerializeField]
     private Slider interactSliderCounter;
+    [SerializeField]
+    private Collider abilitiesCollider;
 
-    //The creature object that the player is gaining the ability from
-    private GameObject creature;
+
+   
+    private bool finished = false;
+        
 	// Use this for initialization
 
 	void Start ()
     {
         //On start up, the UI messages should be empty and you shouldn't see anything
         interactMessage.text = string.Empty;
-        abiltiesGainedMessage.text = string.Empty;
+        
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //Setting the creature object to that creature that enters the trigger
-        if (other.tag == "Creature")
-        {
-            creature = other.gameObject;
-        }
-    }
 
-
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider player)
     {
-        if (other.tag == "Creature")
+        if (player.tag == "Player")
         {
-            if (creature.GetComponent<Creature>().abilityReceived == false)
-            {
+            
                 //When a creature comes in to the trigger, pop the interaction
 
                 interactMessage.text = "Hold E";
 
-                if (Input.GetButton("Interact") && other.tag == "Creature")
+                if (Input.GetButton("Interact") && player.tag == "Player")
                 {
                     //When the button is pressed, start the coroutine
 
@@ -56,21 +52,14 @@ public class abilityGaining : MonoBehaviour
                     StopCoroutine("GainingAbilities");
                     interactSliderCounter.value = 0;
                 }
-            }
-            else
-            {
-                StopCoroutine("GainingAbilities");
-                interactMessage.text = string.Empty;
-                abiltiesGainedMessage.text = string.Empty;
-                interactSliderCounter.value = 0;
-            }
+       
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider player)
     {
         //if the creature exits the trigger, restart the coroutine and the counter
-        if(other.tag == "Creature")
+        if(player.tag == "Player")
         {
             interactMessage.text = string.Empty;
             StopCoroutine("GainingAbilities");
@@ -81,9 +70,8 @@ public class abilityGaining : MonoBehaviour
     private IEnumerator GainingAbilities()
     {
         //first set a bool to false to check when the loop is done
-        bool finished = false;
-        do
-        {
+        
+        do{
             //Increase the slider value by one, wait a second, then continue to add
             interactSliderCounter.value++;
             yield return new WaitForSeconds(1);
@@ -92,19 +80,15 @@ public class abilityGaining : MonoBehaviour
                 finished = true;
 
         } while (!finished);
-        
-        //Display the abilities gained text
-        abiltiesGainedMessage.text = "New Ability has been Acquired!";
+
+
+        abilitiesImage.SetActive(true);
         //Once the loop is finished, remove the interact message
         interactMessage.text = string.Empty;
         interactSliderCounter.value = 0;
-        Debug.Log("Gained an ability");
-        creature.GetComponent<Creature>().abilityReceived = true;
-        yield return new WaitForSeconds(1);
-        //Bool whether or not the creatures ability has been gained
+
+        abilitiesCollider.enabled = false;
         
-        //Then remove that message
-        abiltiesGainedMessage.text = string.Empty;
         
 
     }
