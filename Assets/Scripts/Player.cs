@@ -23,6 +23,9 @@ public class Player : MonoBehaviour {
     //Boolean to determine whether the player can move or not
     private bool canMove;
 
+    //Boolean to determine whether the player can move or not
+    private bool canAttack;
+
     //Boolen to determine whether the player is on the ground
     private bool isGrounded;
 
@@ -35,8 +38,9 @@ public class Player : MonoBehaviour {
         //Removes cursor
         Cursor.lockState = CursorLockMode.Locked;
 
-        //Allows player to move
+        //Allows player to move & attack
         canMove = true;
+        canAttack = true;
 
         //Turns playerMenu off
         
@@ -54,6 +58,8 @@ public class Player : MonoBehaviour {
             Jump();
             Rotate();
             SwitchPerspective();
+            MeleeAttack();
+
         }
         else if(!canMove)
         {
@@ -86,6 +92,22 @@ public class Player : MonoBehaviour {
             playerBody.transform.GetComponent<Rigidbody>().velocity = Vector3.up * jumpHeight;
             isGrounded = false;
         }
+    }
+
+    //when the Player punches
+    void MeleeAttack()
+    {
+        if (canAttack && Input.GetMouseButtonDown(0))
+        {
+            canAttack = false;
+            GetComponent<Animator>().SetTrigger("playerMelee");
+            Debug.Log("Punch");
+        }
+    }
+
+    void EndAttack()
+    {
+        canAttack = true;
     }
 
     //rotates the camera based on mouse input
