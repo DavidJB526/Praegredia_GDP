@@ -83,6 +83,14 @@ public class abilityGaining : MonoBehaviour
 
 
         abilitiesImage.SetActive(true);
+        if(abilitiesImage.name == "AbilityActive")
+        {
+            GameObject.FindWithTag("Player").GetComponent<fireAbility>().enabled = true;
+        }
+        else if(abilitiesImage.name == "AbilityPassive")
+        {
+
+        }
         //Once the loop is finished, remove the interact message
         interactMessage.text = string.Empty;
         interactSliderCounter.value = 0;
