@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
     public float staminaDecay = 5.0f;
 
     // health number
-    public float health = 30;
+    public float health = 100;
 
     //Boolean to determine whether the player can move or not
     private bool canMove;

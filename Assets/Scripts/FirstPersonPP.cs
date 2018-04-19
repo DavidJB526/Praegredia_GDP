@@ -34,6 +34,6 @@ public class FirstPersonPP : MonoBehaviour
 
     private void CheckHealth()
     {
-        vignette.intensity.value = (1.0f-(player.health/100.0f));
+        vignette.intensity.value = (1.0f-(player.health/100.0f))/2;
     }
 }
