@@ -20,6 +20,15 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private Button inventoryButton;
 
+    // stamina number
+    public float stamina = 100;
+
+    // stamina decay rate
+    public float staminaDecay = 5.0f;
+
+    // health number
+    public float health = 30;
+
     //Boolean to determine whether the player can move or not
     private bool canMove;
 
@@ -72,16 +81,21 @@ public class Player : MonoBehaviour {
         playerBody.transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
 
         //sprint
-        if (Input.GetKey("left shift"))
+        if (Input.GetButton("Sprint") && stamina > 0)
         {
             playerBody.transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed * sprintSpeed);
+            StaminaDecay();
+        }
+        else if(stamina < 100)
+        {
+            StaminaRegin();
         }
     }
 
     //jump
     void Jump()
     {
-        if (Input.GetKeyDown("space") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             playerBody.transform.GetComponent<Rigidbody>().velocity = Vector3.up * jumpHeight;
             isGrounded = false;
@@ -93,12 +107,18 @@ public class Player : MonoBehaviour {
     {
         if (Input.GetAxis("Mouse X") < 0)
         {
-            playerBody.transform.Rotate(Vector3.down * mouseSpeed);
+            playerBody.transform.Rotate(Vector3.down * rotateSpeed);
         }
         if (Input.GetAxis("Mouse X") > 0)
         {
-            playerBody.transform.Rotate(Vector3.up * mouseSpeed);
+            playerBody.transform.Rotate(Vector3.up * rotateSpeed);
         }
+        
+        /*
+        thirdPersonCamera.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * 
+            Time.deltaTime * mouseSpeed);
+        */
+        
     }
 
     //switches between first and third person
@@ -147,5 +167,25 @@ public class Player : MonoBehaviour {
     private void OnCollisionStay(Collision collision)
     {
         isGrounded = true;
+    }
+
+    // decay stamina
+    private void StaminaDecay()
+    {
+        stamina -= Time.deltaTime * staminaDecay;
+        if(stamina < 0)
+        {
+            stamina = 0;
+        }
+    }
+
+    // increase stamina
+    private void StaminaRegin()
+    {
+        stamina += Time.deltaTime * (staminaDecay * 1.5f);
+        if(stamina > 100)
+        {
+            stamina = 100;
+        }
     }
 }
