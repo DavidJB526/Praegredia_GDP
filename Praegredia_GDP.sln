@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praegredia_GDP", "Praegredia_GDP.csproj", "{81AA92BA-A5A1-AA72-BACD-5FA8B34050A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praegredia_GDP.Plugins", "Praegredia_GDP.Plugins.csproj", "{3A86D520-8807-2F45-80FA-80F410443AE0}"
