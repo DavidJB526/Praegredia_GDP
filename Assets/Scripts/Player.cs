@@ -29,6 +29,17 @@ public class Player : MonoBehaviour {
     //Boolen to determine whether the player is on the ground
     private bool isGrounded;
 
+    public float stamina = 100f;
+
+    public float health = 100f;
+
+    public float staminaDecay = 1.2f;
+
+    private bool canSprint = true;
+
+    //Whether the character is Active or Inactive
+    private bool isActive;
+
     // Use this for initialization
     void Start () {
 
@@ -38,9 +49,8 @@ public class Player : MonoBehaviour {
         //Removes cursor
         Cursor.lockState = CursorLockMode.Locked;
 
-        //Allows player to move & attack
-        canMove = true;
-        canAttack = true;
+        //Allows player to move
+        Activate();
 
         //Turns playerMenu off
         
@@ -78,11 +88,17 @@ public class Player : MonoBehaviour {
         playerBody.transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
 
         //sprint
-        if (Input.GetKey("left shift"))
+        if (Input.GetKey("left shift") && canSprint)
         {
             playerBody.transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed * sprintSpeed);
+            StaminaDecay();
+        }
+        else if (stamina < 100)
+        {
+            StaminaRecover();
         }
     }
+
 
     //jump
     void Jump()
@@ -145,7 +161,7 @@ public class Player : MonoBehaviour {
     void ToggleMenu()
     {
         //turns cursor & playerMenu on with escape
-        if (Input.GetKeyDown("escape") && canMove == true)
+        if (Input.GetKeyDown("escape") && canMove == true && isActive == true)
         {
             canMove = false;
             Cursor.lockState = CursorLockMode.None;
@@ -153,7 +169,7 @@ public class Player : MonoBehaviour {
             playerMenu.SetActive(true);
             inventoryButton.interactable = false;
         }
-        else if (Input.GetKeyDown("escape") && canMove == false)
+        else if (Input.GetKeyDown("escape") && canMove == false && isActive == true)
         {
             //turns cursor & playerMenu off with escape
             canMove = true;
@@ -161,8 +177,31 @@ public class Player : MonoBehaviour {
             Cursor.visible = false;
             playerMenu.SetActive(false);
         }
-        
+        //if character is not active the menu will not show up
+        else if (Input.GetKeyDown("escape") && isActive == false)
+        {
+            return;
+        }
 
+    }
+
+    //Activates or deactivates camera and controls from the player. Used by PlayerSwap
+    void Activate()
+    {
+        isActive = true;
+        canAttack = true;
+        canMove = true;
+        thirdPersonCamera.SetActive(true);
+        firstPersonCamera.SetActive(false);
+    }
+
+    void Deactivate()
+    {
+        isActive = false;
+        canMove = false;
+        canAttack = false;
+        thirdPersonCamera.SetActive(false);
+        firstPersonCamera.SetActive(false);
     }
 
     //Checks for collision, built in Unity tool
@@ -170,4 +209,28 @@ public class Player : MonoBehaviour {
     {
         isGrounded = true;
     }
+
+    private void StaminaDecay()
+    {
+        stamina -=  Time.deltaTime * staminaDecay;
+        if(stamina <= 0)
+        {
+            stamina = 0;
+            canSprint = false;
+        }
+    }
+
+    private void StaminaRecover()
+    {
+        stamina += Time.deltaTime * (staminaDecay * 1.5f);
+        if(stamina > 20)
+        {
+            canSprint = true;
+        }
+        if(stamina > 100)
+        {
+            stamina = 100;
+        }
+    }
+
 }

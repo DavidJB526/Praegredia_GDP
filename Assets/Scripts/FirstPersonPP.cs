@@ -29,7 +29,7 @@ public class FirstPersonPP : MonoBehaviour
 
     private void CheckStamina()
     {
-        chromaticAberration.intensity.value = 1 - (player.stamina) / 100;
+        chromaticAberration.intensity.value = 1 - ((player.stamina) / 100);
     }
 
     private void CheckHealth()
