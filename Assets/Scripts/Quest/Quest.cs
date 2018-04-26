@@ -13,6 +13,8 @@ public class Quest : MonoBehaviour {
     public GameObject ItemReward { get; set; }
     public bool Completed { get; set; }
 
+    private GameObject SkillSystem;
+
     private void Awake()
     {
         List<Goal> Goals = new List<Goal>();
@@ -21,12 +23,14 @@ public class Quest : MonoBehaviour {
     public void CheckGoals()
     {
         Completed = Goals.All(g => g.Completed);
-        if (Completed) GiveReward();
+        
     }
 
-    void GiveReward()
+    public void GiveReward()
     {
         if (ItemReward != null)
             ItemReward.SetActive(true);
+        skillTree.skillPoints += SkillPointReward;
+        
     }
 }

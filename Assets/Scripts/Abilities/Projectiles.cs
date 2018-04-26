@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Projectiles : MonoBehaviour {
 
@@ -21,11 +22,17 @@ public class Projectiles : MonoBehaviour {
     [SerializeField]
     float lifeTime = 3;
 
+    public int dartAmount = 10;
+
+    [SerializeField]
+    Text dartAmountText;
+
     Rigidbody dartInstance;
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetButtonDown("Fire1"))
+        dartAmountText.text = "Darts: " + dartAmount;
+        if (Input.GetButtonDown("Fire1") && dartAmount > 0)
         {
             ShootDart();
         }
@@ -34,6 +41,7 @@ public class Projectiles : MonoBehaviour {
     void ShootDart()
     {
         RaycastHit hit;
+        
         if(Physics.Raycast(dartTransform.position, dartTransform.forward, out hit, range))
         {
             Enemy enemy = hit.transform.GetComponent<Enemy>();
@@ -47,6 +55,7 @@ public class Projectiles : MonoBehaviour {
         }
         dartInstance = Instantiate(dart, dartTransform.position, dartTransform.rotation) as Rigidbody;
         dartInstance.velocity = launchForce * dartTransform.forward;
+        dartAmount--;
         Destroy(dartInstance, lifeTime);
 
     }

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class DialogueSystem : MonoBehaviour {
 
     public static DialogueSystem Instance { get; set; }
-    [SerializeField]
-    GameObject dialoguePanel;
+   
+    public GameObject dialoguePanel;
     public string npcName;
 
     public List<string> dialogueLines = new List<string>();
@@ -57,10 +57,17 @@ public class DialogueSystem : MonoBehaviour {
         {
             dialogueIndex++;
             dialogueText.text = dialogueLines[dialogueIndex];
+            Debug.Log(dialogueIndex);
         }
         else
         {
             dialoguePanel.SetActive(false);
         }
+    }
+
+    public void dialogueAbruptEnd()
+    {
+        dialoguePanel.SetActive(false);
+        dialogueIndex = 0;
     }
 }
