@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Creature
   - Enemy
+  - Fireball
   layers:
   - Default
   - TransparentFX

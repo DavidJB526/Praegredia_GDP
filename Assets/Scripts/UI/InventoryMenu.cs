@@ -91,24 +91,28 @@ public  class InventoryMenu : MonoBehaviour
     {
         if (Input.GetKeyDown("escape") )
         {
-            if (IsVisible == false)
+            if (IsVisible)
             {
                 HideMenu();
+                
             }
             else
             {
+
                 ShowMenu();
+                
                
             }
-
-        }
-            
            
-        
+        }
+
+       
+
     }
     private void Update()
     {
         HandleInput();
+       
     }
 
 

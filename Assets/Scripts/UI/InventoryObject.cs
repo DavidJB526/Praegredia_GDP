@@ -39,8 +39,8 @@ public class InventoryObject : MonoBehaviour
     {
         if(itemTaken == false)
         {
-
-            if (Input.GetKeyDown("e"))
+           // if(Input.GetKeyDown("e"))
+            if (Input.GetButtonDown("ItemPickup"))
              {
                  inventoryMenu.PlayerInventory.Add(this);
 
