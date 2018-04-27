@@ -54,7 +54,7 @@ public class Projectiles : MonoBehaviour {
             
         }
         dartInstance = Instantiate(dart, dartTransform.position, dartTransform.rotation) as Rigidbody;
-        dartInstance.velocity = launchForce * dartTransform.forward;
+        dartInstance.velocity = launchForce * dartTransform.up;
         dartAmount--;
         Destroy(dartInstance, lifeTime);
 

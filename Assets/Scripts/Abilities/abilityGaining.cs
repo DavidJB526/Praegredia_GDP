@@ -89,7 +89,7 @@ public class abilityGaining : MonoBehaviour
         }
         else if(abilitiesImage.name == "AbilityPassive")
         {
-
+            GameObject.FindWithTag("Player").GetComponent<sprintAbility>().enabled = true;
         }
         //Once the loop is finished, remove the interact message
         interactMessage.text = string.Empty;

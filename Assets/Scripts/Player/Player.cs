@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
     //Player controls stats
     [SerializeField]
-    private float playerSpeed, jumpHeight, sprintSpeed, mouseSpeed, rotateSpeed;
+    private float jumpHeight, sprintSpeed, mouseSpeed, rotateSpeed;
+
+    public static float playerSpeed = 0.2f;
 
     //The playerBody
     [SerializeField]

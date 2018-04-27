@@ -27,6 +27,8 @@ public class QuestGiver : NPC
         {
             base.Interact();
             AssignQuest();
+            questDescription.text = "Find a way through the ice covered cave and take care of the stray colonist.";
+            questName.text = "Protecting the Tribe";
         }
         else if(AssignedQuest && !Helped)
         {
@@ -43,8 +45,7 @@ public class QuestGiver : NPC
         Debug.Log("Quest Active");
         AssignedQuest = true;
         Quest = (Quest)quests.AddComponent(System.Type.GetType(questType));
-        questDescription.text = Quest.Description;
-        questName.text = Quest.QuestName;
+        
     }
 	
     void CheckQuest()
@@ -58,7 +59,7 @@ public class QuestGiver : NPC
         }
         else
         {
-            DialogueSystem.Instance.AddNewDialogue(new string[] { "" }, name);
+            DialogueSystem.Instance.AddNewDialogue(new string[] { "Please handle the colonist. The cave is to the north, follow the path until you spot a muddy trail lead into the forest." }, name);
         }
     }
 
