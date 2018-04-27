@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praegredia_GDP.Plugins", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.unity.postprocessing.Editor", "com.unity.postprocessing.Editor.csproj", "{8C3967EF-EA5C-CD2A-F191-ADB2A5FEC7D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praegredia_GDP.Editor.Plugins", "Praegredia_GDP.Editor.Plugins.csproj", "{1D68E236-CC93-AA67-9FAC-DEEE107AA167}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{8C3967EF-EA5C-CD2A-F191-ADB2A5FEC7D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C3967EF-EA5C-CD2A-F191-ADB2A5FEC7D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C3967EF-EA5C-CD2A-F191-ADB2A5FEC7D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D68E236-CC93-AA67-9FAC-DEEE107AA167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D68E236-CC93-AA67-9FAC-DEEE107AA167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D68E236-CC93-AA67-9FAC-DEEE107AA167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D68E236-CC93-AA67-9FAC-DEEE107AA167}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
