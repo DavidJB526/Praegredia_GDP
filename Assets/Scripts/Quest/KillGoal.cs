@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KillGoal : Goal {
 
+  
 
     public int EnemyID { get; set; }
 
@@ -20,15 +21,18 @@ public class KillGoal : Goal {
     public override void Init()
     {
         base.Init();
-        CombatEvent.OnEnemyDeath += EnemyDied;
+        CombatEvent.OnEnemyDeath += EnemyDies;
     }
 
-    void EnemyDied(IEnemy enemy)
+
+    public void EnemyDies(IEnemy enemy)
     {
-        if (enemy.ID == this.EnemyID)
+        if(enemy.ID == this.EnemyID)
         {
+            Debug.Log("Enemy Died");
             this.CurrentAmount++;
             Evaluate();
+            this.Completed = true;
         }
     }
 

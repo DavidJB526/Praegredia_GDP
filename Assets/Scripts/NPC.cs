@@ -22,7 +22,7 @@ public class NPC : MonoBehaviour {
             
             if(Input.GetButtonDown("Interact"))
             {
-                Debug.Log("Next dialogue");
+                
                 DialogueSystem.Instance.ContinueDialogue();
             }
         }

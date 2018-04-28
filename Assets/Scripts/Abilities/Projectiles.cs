@@ -42,7 +42,7 @@ public class Projectiles : MonoBehaviour {
     {
         RaycastHit hit;
         
-        if(Physics.Raycast(dartTransform.position, dartTransform.forward, out hit, range))
+        if(Physics.Raycast(dartTransform.position, dartTransform.up, out hit, range))
         {
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             if(enemy != null)

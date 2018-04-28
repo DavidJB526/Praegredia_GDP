@@ -62,6 +62,7 @@ public class DialogueSystem : MonoBehaviour {
         else
         {
             dialoguePanel.SetActive(false);
+            dialogueIndex = 0;
         }
     }
 

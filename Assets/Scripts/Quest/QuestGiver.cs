@@ -36,7 +36,7 @@ public class QuestGiver : NPC
         }
         else
         {
-            DialogueSystem.Instance.AddNewDialogue(new string[] { "" }, name);
+            DialogueSystem.Instance.AddNewDialogue(new string[] { "Nice to see you again, brother. Don't forget that the amulet is a key to the hidden passage in the cave." }, name);
         }
     }
 
@@ -50,12 +50,13 @@ public class QuestGiver : NPC
 	
     void CheckQuest()
     {
-        if(Quest.Completed)
+        if(Quest.Completed == true)
         {
+            Debug.Log("Quest completed");
             Quest.GiveReward();
             Helped = true;
             AssignedQuest = false;
-            DialogueSystem.Instance.AddNewDialogue(new string[] { "Thank you." }, name );
+            DialogueSystem.Instance.AddNewDialogue(new string[] { "Thank you for your help, brother. Here's an amulet as a reward. Return to gave and it should open the hidden passage there." }, name );
         }
         else
         {

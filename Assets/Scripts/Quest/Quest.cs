@@ -13,15 +13,11 @@ public class Quest : MonoBehaviour {
     public GameObject ItemReward { get; set; }
     public bool Completed { get; set; }
 
-    private GameObject SkillSystem;
-
-    private void Awake()
-    {
-        List<Goal> Goals = new List<Goal>();
-    }
+    
 
     public void CheckGoals()
     {
+        Debug.Log("All goals completed");
         Completed = Goals.All(g => g.Completed);
         
     }
