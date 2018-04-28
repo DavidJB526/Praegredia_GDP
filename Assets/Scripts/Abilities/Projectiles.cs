@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Projectiles : MonoBehaviour {
 
     [SerializeField]
-    float Dartdamge;
+    float Dartdamge = 10;
     [SerializeField]
     float range = 10;
 

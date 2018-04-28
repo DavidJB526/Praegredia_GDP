@@ -22,11 +22,6 @@ public class InventoryUIFunctionality : MonoBehaviour {
         optionsButton = GameObject.Find("Options").GetComponent<Button>();
     }
 	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
     //When the Inventory button is pressed
     public void InventoryScreen()

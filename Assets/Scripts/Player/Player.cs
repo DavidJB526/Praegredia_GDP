@@ -42,6 +42,9 @@ public class Player : MonoBehaviour {
     //Whether the character is Active or Inactive
     private bool isActive;
 
+    private Animator anim;
+    
+
     // Use this for initialization
     void Start () {
 
@@ -55,8 +58,11 @@ public class Player : MonoBehaviour {
         Activate();
 
         //Turns playerMenu off
+        anim = GetComponent<Animator>();
         
         playerMenu.SetActive(false);
+
+        
 		
 	}
 	
@@ -65,6 +71,7 @@ public class Player : MonoBehaviour {
     {
         if (canMove)
         {
+            
             playerBody.GetComponent<Rigidbody>().isKinematic = false;
             Move();
             Jump();
@@ -87,8 +94,9 @@ public class Player : MonoBehaviour {
         //moves left and right
         playerBody.transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * playerSpeed);
         //moves forward and back
-        playerBody.transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
-
+        float walking = Input.GetAxis("Vertical");
+        playerBody.transform.Translate(Vector3.forward * walking * playerSpeed);
+        anim.SetFloat("walking", walking);
         //sprint
         if (Input.GetKey("left shift") && canSprint)
         {
@@ -115,17 +123,30 @@ public class Player : MonoBehaviour {
     //when the Player punches
     void MeleeAttack()
     {
+        
         if (canAttack && Input.GetMouseButtonDown(0))
         {
+            StartCoroutine(AttackAnimation());
+            anim.SetBool("attack", true);
             canAttack = false;
             GetComponent<Animator>().SetTrigger("playerMelee");
             Debug.Log("Punch");
+            EndAttack();
         }
+    }
+
+    IEnumerator AttackAnimation()
+    {
+
+        
+        yield return new WaitForSeconds(1.5f);
+        anim.SetBool("attack", false);
     }
 
     void EndAttack()
     {
         canAttack = true;
+       
     }
 
     //rotates the camera based on mouse input
@@ -140,6 +161,8 @@ public class Player : MonoBehaviour {
             playerBody.transform.Rotate(Vector3.up * mouseSpeed);
         }
     }
+
+
 
     //switches between first and third person
     void SwitchPerspective()
