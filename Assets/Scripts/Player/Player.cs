@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float jumpHeight, sprintSpeed, mouseSpeed, rotateSpeed;
 
-    public static float playerSpeed = 0.2f;
+    public static float playerSpeed = 0.4f;
 
     //The playerBody
     [SerializeField]
@@ -129,7 +129,7 @@ public class Player : MonoBehaviour {
             StartCoroutine(AttackAnimation());
             anim.SetBool("attack", true);
             canAttack = false;
-            GetComponent<Animator>().SetTrigger("playerMelee");
+            //GetComponent<Animator>().SetTrigger("playerMelee");
             Debug.Log("Punch");
             EndAttack();
         }
