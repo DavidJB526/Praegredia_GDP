@@ -66,9 +66,10 @@ public class DialogueSystem : MonoBehaviour {
         }
     }
 
-    public void dialogueAbruptEnd()
+    public void DialogueAbruptEnd()
     {
-        dialoguePanel.SetActive(false);
         dialogueIndex = 0;
+        dialoguePanel.SetActive(false);
+        
     }
 }

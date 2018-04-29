@@ -10,6 +10,7 @@ public class dartPickUp : MonoBehaviour {
         if(other.tag == "Player")
         {
             other.GetComponent<Projectiles>().dartAmount += 10;
+            Destroy(gameObject);
         }
     }
 }

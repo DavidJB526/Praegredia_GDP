@@ -20,6 +20,9 @@ public class QuestGiver : NPC
     [SerializeField]
     Text questName;
 
+    [SerializeField]
+    GameObject item;
+
     public override void Interact()
     {
         
@@ -50,10 +53,13 @@ public class QuestGiver : NPC
 	
     void CheckQuest()
     {
+        Quest.CheckGoals();
+
         if(Quest.Completed == true)
         {
             Debug.Log("Quest completed");
-            Quest.GiveReward();
+            //Quest.GiveReward();
+            item.SetActive(true);
             Helped = true;
             AssignedQuest = false;
             DialogueSystem.Instance.AddNewDialogue(new string[] { "Thank you for your help, brother. Here's an amulet as a reward. Return to gave and it should open the hidden passage there." }, name );

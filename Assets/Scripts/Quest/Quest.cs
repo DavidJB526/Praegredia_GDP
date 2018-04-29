@@ -17,8 +17,12 @@ public class Quest : MonoBehaviour {
 
     public void CheckGoals()
     {
-        Debug.Log("All goals completed");
-        Completed = Goals.All(g => g.Completed);
+       if(Goals.All(g => g.Completed))
+        {
+            Completed = true;
+            Debug.Log("All goals completed");
+        }
+       // Completed = Goals.All(g => g.Completed);
         
     }
 

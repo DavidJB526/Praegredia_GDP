@@ -25,14 +25,14 @@ public class KillGoal : Goal {
     }
 
 
-    public void EnemyDies(IEnemy enemy)
+    void EnemyDies(IEnemy enemy)
     {
         if(enemy.ID == this.EnemyID)
         {
             Debug.Log("Enemy Died");
             this.CurrentAmount++;
             Evaluate();
-            this.Completed = true;
+            //this.Completed = true;
         }
     }
 

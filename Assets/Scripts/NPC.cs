@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class NPC : MonoBehaviour {
+public class NPC : MonoBehaviour
+{
     public string[] dialogue;
     public string name;
 
@@ -22,7 +23,7 @@ public class NPC : MonoBehaviour {
             
             if(Input.GetButtonDown("Interact"))
             {
-                
+                Debug.Log("-");
                 DialogueSystem.Instance.ContinueDialogue();
             }
         }
@@ -32,7 +33,7 @@ public class NPC : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
-            DialogueSystem.Instance.dialogueAbruptEnd(); 
+            DialogueSystem.Instance.DialogueAbruptEnd(); 
         }
     }
 
