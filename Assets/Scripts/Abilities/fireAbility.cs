@@ -41,7 +41,7 @@ public class fireAbility : MonoBehaviour {
     private void Shoot()
     {
         Rigidbody fireInstance = Instantiate(fireball, fireTransform.position, fireTransform.rotation) as Rigidbody;
-        fireInstance.velocity = force * fireTransform.up;
+        fireInstance.velocity = force * fireTransform.right;
         Destroy(fireInstance, lifeTime);
         
     }

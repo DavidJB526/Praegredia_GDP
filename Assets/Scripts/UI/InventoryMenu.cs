@@ -91,7 +91,7 @@ public  class InventoryMenu : MonoBehaviour
     {
         if (Input.GetKeyDown("escape") )
         {
-            if (IsVisible)
+            if (!IsVisible)
             {
                 HideMenu();
                 

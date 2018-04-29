@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float jumpHeight, sprintSpeed, mouseSpeed, rotateSpeed;
 
-    public static float playerSpeed = 0.4f;
+    public static float playerSpeed = 0.3f;
 
     //The playerBody
     [SerializeField]

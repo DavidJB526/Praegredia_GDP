@@ -33,10 +33,13 @@ public class EndOfDemo : MonoBehaviour
         if(other.tag == "Player" && HasKey)
         {
             StartCoroutine(FadeCanvasGroup(uiElement, uiElement.alpha, 1));
+            
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
-    public IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float lerpTime = 0.25f)
+    public IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float lerpTime = 1f)
     {
         float timeStartedLerping = Time.time;
         float timeSinceStarted = Time.time - timeStartedLerping;
