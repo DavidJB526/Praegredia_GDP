@@ -23,8 +23,7 @@ GameObject:
   - component: {fileID: 135308593085296768}
   - component: {fileID: 23820022555267598}
   - component: {fileID: 114794591585247888}
-  - component: {fileID: 54853956758569910}
-  - component: {fileID: 114312082299961858}
+  - component: {fileID: 54137374012359248}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Fireball
@@ -86,7 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908906701441348}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54853956758569910
+--- !u!54 &54137374012359248
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -101,23 +100,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114312082299961858
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1908906701441348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c17c82fbf38d3e54dab84373a1f8d6d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackable:
-    serializedVersion: 2
-    m_Bits: 0
-  maxDamage: 50
-  lifeTime: 2
-  radius: 3
 --- !u!114 &114794591585247888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +124,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908906701441348}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

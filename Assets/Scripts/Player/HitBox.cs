@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class HitBox : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    [SerializeField]
+    private float attackDamage;
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,7 +18,11 @@ public class HitBox : MonoBehaviour {
 
         if(collider.tag == "Enemy")
         {
-            Destroy(collider.gameObject);
+            Enemy enemy = collider.transform.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(attackDamage);
+            }
         }
     }
 }

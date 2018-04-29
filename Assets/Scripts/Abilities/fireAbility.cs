@@ -31,7 +31,7 @@ public class fireAbility : MonoBehaviour {
 		if(Input.GetButtonDown("Fire2") && cooldown)
         {
             anim.SetBool("ability", true);
-            Shoot();
+            //Shoot();
             cooldown = false;
             StartCoroutine(AbilityAnimation());
             StartCoroutine(Cooldown());
