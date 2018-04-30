@@ -5,13 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject mainMenu, creditsMenu;
+
     public void OnStartClick()
     {
         SceneManager.LoadScene("MainScene");
     }
     public void OnCreditsClick()
     {
-        SceneManager.LoadScene("Credits");
+        mainMenu.SetActive(false);
+        creditsMenu.SetActive(true);
+    }
+    public void OnBackClick()
+    {
+        mainMenu.SetActive(true);
+        creditsMenu.SetActive(false);
     }
     public void OnQuitClick()
     {

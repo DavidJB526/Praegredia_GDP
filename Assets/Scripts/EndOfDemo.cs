@@ -12,6 +12,9 @@ public class EndOfDemo : MonoBehaviour
     [SerializeField]
     CanvasGroup uiElement;
 
+    [SerializeField]
+    GameObject uiOverlay;
+
     private List<InventoryObject> playerInventory;
 
     private bool HasKey
@@ -36,6 +39,7 @@ public class EndOfDemo : MonoBehaviour
             
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            uiOverlay.SetActive(false);
         }
     }
 

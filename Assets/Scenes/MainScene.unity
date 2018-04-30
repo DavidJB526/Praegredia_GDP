@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4897,9 +4897,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 10
-  sprintSpeed: 0.5
-  mouseSpeed: 3
-  rotateSpeed: 3
+  sprintSpeed: 0.6
+  mouseSpeed: 6
+  rotateSpeed: 6
   playerBody: {fileID: 515419625}
   firstPersonCamera: {fileID: 687941079}
   thirdPersonCamera: {fileID: 767499454}
@@ -8747,7 +8747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.63235295, g: 0.63235295, b: 0.63235295, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10819,6 +10819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: {fileID: 141969183}
   uiElement: {fileID: 35101236}
+  uiOverlay: {fileID: 0}
 --- !u!1001 &1005320870
 Prefab:
   m_ObjectHideFlags: 0
@@ -11076,7 +11077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2aefafbd4e7cfe44b803cf6dc18743f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 20
+  attackDamage: 25
 --- !u!1001 &1030540561
 Prefab:
   m_ObjectHideFlags: 0
@@ -20797,8 +20798,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2132496595}
-  m_LocalRotation: {x: -0.22888403, y: 0.62089425, z: 0.19641188, w: 0.72355014}
-  m_LocalPosition: {x: 222.90349, y: -272.97116, z: 192.06543}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 246.4778, y: 26.041653, z: 158.79405}
   m_LocalScale: {x: 1.3320419, y: 7.22623, z: 0.82283556}
   m_Children: []
   m_Father: {fileID: 1154096315}
