@@ -51,6 +51,9 @@ public class Player : MonoBehaviour {
         //Player spawns in
         //playerBody.transform.position = new Vector3(0, 2, 0);
 
+        //Reset playerSpeed
+        playerSpeed = 0.4f;
+
         //Removes and locks cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

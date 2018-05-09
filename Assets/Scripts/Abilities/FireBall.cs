@@ -5,8 +5,6 @@ using UnityEngine;
 public class FireBall : MonoBehaviour {
 
     [SerializeField]
-    LayerMask attackable;
-    [SerializeField]
     float maxDamage = 50f;
     [SerializeField]
     public float lifeTime = 2f;
@@ -19,39 +17,37 @@ public class FireBall : MonoBehaviour {
         Destroy(gameObject, lifeTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius, attackable);
+        Debug.Log("Hit: " + collider.name);
 
-        for(int i = 0; i < colliders.Length; i++)
+        if (collider.tag == "Enemy")
         {
-            Rigidbody targetRigibody = colliders[i].GetComponent<Rigidbody>();
-
-            if (!targetRigibody)
-                continue;
-            Enemy targetHealth = targetRigibody.GetComponent<Enemy>();
-            if (!targetHealth)
-                continue;
-            float damage = CalculateDamage(targetRigibody.position);
-
-            targetHealth.TakeDamage(damage);
+            Enemy enemy = collider.transform.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(maxDamage);
+            }
         }
-
-        Destroy(gameObject);
+        
+        if(collider != null)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    float CalculateDamage(Vector3 targetPosition)
-    {
-        Vector3 explosionToTarget = targetPosition - transform.position;
+    //float CalculateDamage(Vector3 targetPosition)
+    //{
+    //    Vector3 explosionToTarget = targetPosition - transform.position;
 
-        float explosionDistance = explosionToTarget.magnitude;
+    //    float explosionDistance = explosionToTarget.magnitude;
 
-        float relativeDistance = (radius - explosionDistance) / radius;
+    //    float relativeDistance = (radius - explosionDistance) / radius;
 
-        float damage = relativeDistance * maxDamage;
+    //    float damage = relativeDistance * maxDamage;
 
-        damage = Mathf.Max(0f, damage);
+    //    damage = Mathf.Max(0f, damage);
 
-        return damage;
-    }
+    //    return damage;
+    //}
 }

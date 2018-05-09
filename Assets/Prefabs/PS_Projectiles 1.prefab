@@ -225,10 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17c82fbf38d3e54dab84373a1f8d6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackable:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxDamage: 50
+  maxDamage: 20
   lifeTime: 3
   radius: 4
 --- !u!135 &135830866577989000
@@ -238,7 +235,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1920919157787336}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.49
