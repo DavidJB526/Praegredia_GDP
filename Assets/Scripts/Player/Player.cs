@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float jumpHeight, sprintSpeed, mouseSpeed, rotateSpeed;
 
-    public static float playerSpeed = 0.3f;
+    public static float playerSpeed = 0.4f;
 
     //The playerBody
     [SerializeField]
@@ -51,8 +51,12 @@ public class Player : MonoBehaviour {
         //Player spawns in
         //playerBody.transform.position = new Vector3(0, 2, 0);
 
-        //Removes cursor
+        //Reset playerSpeed
+        playerSpeed = 0.4f;
+
+        //Removes and locks cursor
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         //Allows player to move
         Activate();
